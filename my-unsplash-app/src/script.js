@@ -27,11 +27,12 @@ navigator.geolocation.getCurrentPosition(
             })
             .then(data => {
                 console.log(data);
+                const temp=Math.round(data.main.temp)
                 const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
                  document.querySelector("#weather").innerHTML =`
                      <div class="temp">
                         <img src=${iconUrl} alt="Weather-icon"/>
-                        <p>${data.main.temp}</p>
+                        <p>${temp}&deg</p>
                      </div>
       
                      <p>${data.name}</p>
@@ -43,7 +44,7 @@ navigator.geolocation.getCurrentPosition(
 
 function getTime(){
     const now=new Date();
-    document.querySelector(".time").textContent=now.toLocaleTimeString("en-in",{timeStyle:"short"})
+    document.querySelector(".time").textContent=now.toLocaleTimeString("en-in",{timeStyle:"short"}).toUpperCase()
 }
 
 setInterval(getTime,1000);
