@@ -31,7 +31,6 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    background-color: #242424;
 }
 
 .weather{
