@@ -54,13 +54,13 @@ const addItems=document.querySelector(".add-items");
 
 addItems.addEventListener("click", (e)=>{
     e.preventDefault();
-    const form=document.querySelector(".to-do-form");
-    form.innerHTML+=`
-        <div class="item">
-            <input type="checkbox" />
-            <input type="time" />
-            <input type="text" />
-            <input type="button" value="␡"/>
-        </div>    
+    const data=document.querySelector("#title").value
+    const list=document.querySelector(".to-do-list");
+    list.innerHTML+=`
+        <div class="list-items">
+            <p>${data}</p> 
+            <button>&times;</button>  
+        </div>
+        
     `
 })

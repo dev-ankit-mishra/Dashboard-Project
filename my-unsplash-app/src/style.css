@@ -91,9 +91,24 @@ body{
 
 }
 
+.to-do-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
 .to-do-form{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.list-items{
+    display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
