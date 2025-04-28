@@ -48,3 +48,19 @@ function getTime(){
 }
 
 setInterval(getTime,1000);
+
+
+const addItems=document.querySelector(".add-items");
+
+addItems.addEventListener("click", (e)=>{
+    e.preventDefault();
+    const form=document.querySelector(".to-do-form");
+    form.innerHTML+=`
+        <div class="item">
+            <input type="checkbox" />
+            <input type="time" />
+            <input type="text" />
+            <input type="button" value="␡"/>
+        </div>    
+    `
+})
