@@ -29,8 +29,11 @@ navigator.geolocation.getCurrentPosition(
                 console.log(data);
                 const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
                  document.querySelector("#weather").innerHTML =`
-                     <img src=${iconUrl} alt="Weather-icon"/>
-                    <p>${data.main.temp}</p>
+                     <div class="temp">
+                        <img src=${iconUrl} alt="Weather-icon"/>
+                        <p>${data.main.temp}</p>
+                     </div>
+      
                      <p>${data.name}</p>
 
                  `;
