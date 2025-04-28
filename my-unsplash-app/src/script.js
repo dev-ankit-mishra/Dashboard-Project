@@ -29,7 +29,7 @@ navigator.geolocation.getCurrentPosition(
                 console.log(data);
                 const iconUrl = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`
                  document.querySelector("#weather").innerHTML =`
-                     <img src=${iconUrl} />
+                     <img src=${iconUrl} alt="Weather-icon"/>
                     <p>${data.main.temp}</p>
                      <p>${data.name}</p>
 
@@ -37,7 +37,10 @@ navigator.geolocation.getCurrentPosition(
             })
     }
 );
-//
-//
-// const now=new Date().getTime();
-// console.log(now.getHours());
+
+function getTime(){
+    const now=new Date();
+    document.querySelector(".time").textContent=now.toLocaleTimeString("en-in",{timeStyle:"short"})
+}
+
+setInterval(getTime,1000);

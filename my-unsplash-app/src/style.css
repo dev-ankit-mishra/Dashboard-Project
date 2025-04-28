@@ -4,25 +4,50 @@
     box-sizing: border-box;
 }
 
+html,body{
+    height: 100%;
+}
+
 body{
     margin: 0;
+    height: 100vh;
     background: no-repeat center center fixed;
     background-size: cover;
+    text-shadow: 0 0 20px #242424;
+    color: white;
 }
 
 .dashboard{
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
+    justify-content: space-between;
 
 }
 
 .top-component{
+    margin: 0;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
+    background-color: #242424;
+}
+
+.weather{
+    margin: 0;
+}
+
+.middle-component{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+
+}
+
+.time{
+    font-size: 5rem;
+    color: white;
+    font-weight: bold;
 }
 
