@@ -2,11 +2,18 @@
 const query = "mountain,lake,forest,waterfall,tropical";
 const UNSPLASH_KEY = import.meta.env.VITE_UNSPLASH_KEY; // From .env
 
-fetch(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${UNSPLASH_KEY}`)
-.then(res=>res.json())
-.then(data => {
-    document.querySelector("#app-body").style.backgroundImage = `url(${data.urls.full})`;
-})
+try{
+    fetch(`https://api.unsplash.com/photos/random?orientation=landscape&query=${query}&client_id=${UNSPLASH_KEY}`)
+        .then(res=>res.json())
+        .then(data => {
+            console.log(data)
+            document.querySelector("#app-body").style.backgroundImage = `url(${data.urls.full})`;
+            document.querySelector(".author").innerText =`Photos by ${data.user.name}` ;
+        })
+}catch(e){
+    document.querySelector("#app-body").style.backgroundImage = `url(https://images.unsplash.com/photo-1421789665209-c9b2a435e3dc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fG5hdHVyZXxlbnwwfHwwfHx8MA%3D%3D)`;
+}
+
 
 
 const WEATHER_KEY = import.meta.env.VITE_WEATHER_KEY;
@@ -50,17 +57,3 @@ function getTime(){
 setInterval(getTime,1000);
 
 
-const addItems=document.querySelector(".add-items");
-
-addItems.addEventListener("click", (e)=>{
-    e.preventDefault();
-    const data=document.querySelector("#title").value
-    const list=document.querySelector(".to-do-list");
-    list.innerHTML+=`
-        <div class="list-items">
-            <p>${data}</p> 
-            <button>&times;</button>  
-        </div>
-        
-    `
-})
